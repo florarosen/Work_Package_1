@@ -1,19 +1,78 @@
-Materials and Methods : 
+Materials and Methods :
 
 1. Participants
-XX CI users ( XX females, mean age ), XX age-matched controls. All are post-lingually deafened patients : Mean age at implantation, side of implantantion, 
-age at onset of hearing impairment,lenghth of sensory deprivation before implantation. 
+XX CI users ( XX females, mean age ), XX age-matched controls. All are post-lingually deafened patients : Mean age at implantation, side of implantantion,
+age at onset of hearing impairment,lenghth of sensory deprivation before implantation.
 XX AB, XX Cochlear, XX Med-EL
 Controls : age-matched, no hearing impairment (prevoir test audio?), right-handed (?), no neurological disease
 
-Stimulus presented in free-field condition, with one or two ? loud speakers placed 1m in front of the patient. The patient was confortably seating 
+Stimulus presented in free-field condition, with one or two ? loud speakers placed 1m in front of the patient.
+Patient confortably seated
 Task during EEG : - visual fixation or sound detection ? (pb : would increase the number of trials because need to be discarded)
 
 2. Stimulus
 
+- Amplitude modulation depth ? Comment déterminer
+- Lenght of total sequence : integer ratio of the whole sequence; how long ?
+- Number of trials :
+
 
 3. EEG recording
+BioSemi 64 Ag-Ag active electrodes, 10-20
+CI under cap , do not fill with gel the closest electrodes to
+Sampling rate :
+Ground :
+Reference :
+Patient preparation :
+  Exfoliate nose and mastoids with Nuprep gel on a Qtip, wipe excess off
+  Put electrode washer (2 sided sticky circle on each electrode) + Place a bit of gel in the electrode + then stick electrode on mastoids (EXG1 + EXG2) and nose (EXG3)
+  Cap : Measure participants head between occipital and nasion to chose appropriate size of cap.
+        Patient holds the front of the cap while you pull it backwards
+        Center Cz mid saggital and mid coronal (tragus to tragus)
+        10-20 system : FPz should be located 10% of the distance between nasion and inion
+        Plug in each electrode and check the offset on screen (NOT a measure of impedance !!) : if offset is high : electrode is not plugged in, is dead or doesn't have enough gel
+Instructions to patient :
+  - Participant should relax and avoid muscle contraction (show on the screen the effect of eye blinks/movements and neck movements)
+  - Cell phone outside of the booth
+  - Task explanation :
+    - You will hear xx sequences of sounds that last for xx seconds, try and pay attention, some will be slightly different"
+    - "I will ask you in between each set if you want to take a small break, move around a bit or continue"
+    - "At the end of the whole thing, There will be another shorter task that I will explain after"
+    - "While you are listening, fixate the cross in front of you,
+    - fake task  (Nozaradan et al., 2018) : listen closely to the sound and tell me if something has changed (Tell the participant at the end the task was fake)
 
-4. EEG preprocessing
+
+4. EEG preprocessing :
+  1. Electrode Interpolation :
+      - Interpolate disconnected (flat or noisy) electrodes, (don't forget to write them down during the recording)
+      --> complicated for electrodes on the extremities (ex : PO8) because the interpolation is not spherical
+      --> so interpolate vs delete ? Would make the comparison between different datasets complicated ?
+      --> Runica should be ok as it is infomax
+      --> Make sure to take out the electrode already interpolated from the pool (usually next to each other so will be in the algorithm for interpolation)
+
+      Electrode Rejection :
+        - Better to keep the maximum number possible of electrodes for ICA
+
+  2. Rereferencing
+  - A good reference should optimize the signal-to-noise ratio
+  - In BioSemi, the reference while recording is automatically DM
+  - Review "if the CI is unilateral, the best reference electrode is usually an inactive site placed along the isopotential line of the artifact within contralateral electrodes"
+  - contralateral frontal electrodes have the minimum residual artifacts (but cannot be used in this case ?)
+
+
+- Au niveau de l'interpolation : compliqué lorsqu'il s'agit
+ICA :
+- Is it ok to use Runica ?
+- Maximum number of components
+- Manually reject components based on topography (CI + eye blinks)
+
+Artifact
+- Order of magnitude 8μV vs 1μV for neural response (Minah 2017)
+- degree and spread of contamination is dependent on the surgical emplacement of the CI (Minah 2017)
+
+Template substraction :
+
+
 
 5. Stimulus analysis ?
+Cochlear model = need to take into account the Stimulation rate of the CI
